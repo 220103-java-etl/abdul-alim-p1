@@ -1,0 +1,10 @@
+body {
+font-family: Arial, Helvetica, sans-serif;
+font-size: 100%;
+margin-left: 2em;
+background-color: #FFFFCC; 
+}
+a { 
+font-weight: bold;
+color: #931420; 
+}

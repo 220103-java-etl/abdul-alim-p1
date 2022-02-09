@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reimbursement Request Page</title>
+    <link rel="stylesheet" href="C:\Users\AKhan\Desktop\Revature\Projects\ReimbursementApp\src\main\webapp\style.css.txtC:\Users\AKhan\Desktop\Revature\Projects\ReimbursementApp\src\main\webapp\style.css.txt">
+</head>
+<body>
+<h1>Welcome to Create and Submit your Reimbursement Request:</h1>
+<form>
+    <p>
+        <label for="EventSelect">Type of Event:</label>
+        <select id="EventSelect" name="EventType">
+            <option value="">Please select the Event</option>
+            <option value="UniversityCourse">University Courses </option>
+            <option value="Seminar">Seminars </option>
+            <option value="SertificatePrep">Certification Preparation Classes </option>
+            <option value="Certificate">Certification</option>
+            <option value="TechnicalTraining">Technical Training </option>
+            <option value="other">Other</option>
+        </select>
+    </p>
+    <p>
+        <label>Location of Event:
+            <input type="text" name="EventLocation" minlength="5" required>
+        </label>
+        <br/>
+        <br/>
+        <label>Event Date:
+            <input type="date" name="date" required>
+        </label>
+        <br/>
+        <br/>
+        <label>Grading Format:
+            <input type="text" name="Grade" minlength="1" required>
+        </label>
+        <br/>
+        <br/>
+        <label>Cost for Reimbursement:
+            <input type="number" name="Cost" minlength="1" required>
+        </label>
+    </p>
+    <p>Description:</p>
+    <label for="description"></label>
+    <textarea id="description" name="description" rows="5" cols="45">
+         Please write your description here...</textarea>
+    <br/>
+    <br/>
+    <label>Upload documents(eg. receipts, certificate):
+        <input type="file" name="file" accept=".msg,.doc, .pdf, image/jpeg, image/png">
+    </label>
+    <br/>
+    <br/>
+    <input type="submit" value="Submit">
+</form>
+</body>
+</html>
