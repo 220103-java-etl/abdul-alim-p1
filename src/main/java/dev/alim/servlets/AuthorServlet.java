@@ -22,7 +22,7 @@ public class AuthorServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("hello world");
+//        System.out.println("hello world");
         HttpSession session = req.getSession(false);
         if (session == null) {
             PrintWriter out = resp.getWriter();
@@ -30,7 +30,7 @@ public class AuthorServlet extends HttpServlet {
             out.write("<a href='login.html'>Login</a>");
             System.out.println("session is null");
         } else {
-            // otherwise read details from the form data
+            //  read details from the form data
             EventType eventType = EventType.valueOf(req.getParameter("EventType"));
             String eventLocation = req.getParameter("EventLocation");
             Date eventDate = Date.valueOf(req.getParameter("date"));
@@ -50,8 +50,8 @@ public class AuthorServlet extends HttpServlet {
             pr.setEventCost(eventCost);
             pr.setDescription(description);
 
-            System.out.println(pr.toString());
-            System.out.println(u.toString());
+//            System.out.println(pr.toString());
+//            System.out.println(u.toString());
             rs.addReimbursement(pr);
             resp.sendRedirect("index.html");
         }

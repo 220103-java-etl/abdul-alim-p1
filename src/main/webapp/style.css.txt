@@ -4,6 +4,10 @@ font-size: 100%;
 margin-left: 2em;
 background-color: #FFFFCC; 
 }
+div {
+  display: flex;
+  align-items: center;
+}
 a { 
 font-weight: bold;
 color: #931420; 
