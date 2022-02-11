@@ -1,16 +1,15 @@
 package dev.alim.app;
 
 import dev.alim.models.User;
-import dev.alim.repository.AuthorDAO;
+import dev.alim.repository.ReimbursementDAO;
 import dev.alim.service.UserService;
 
-import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class ReimbursementApp {
     private static Scanner scanner = new Scanner(System.in);
     private static UserService userService = new UserService();
-    private static AuthorDAO authorDAO = new AuthorDAO();
+    private static ReimbursementDAO authorDAO = new ReimbursementDAO();
 
     public static void main(String[]args){
 

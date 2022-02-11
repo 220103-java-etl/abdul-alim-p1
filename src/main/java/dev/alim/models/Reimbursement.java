@@ -1,12 +1,13 @@
 package dev.alim.models;
 
 import java.io.File;
+import java.sql.Date;
 import java.sql.Timestamp;
-import java.util.Date;
-import java.util.Objects;
 
 public class Reimbursement{
     private int id;
+    private User author;
+    private User resolver;
     private EventType eventType;
     private String eventLocation;
     private String grade;
@@ -34,13 +35,12 @@ public class Reimbursement{
         this.uploadFile = uploadFile;
     }
 
-    public Reimbursement(int id, Timestamp createdDate, Status status, Double payableCost, Timestamp resolvedDate, File uploadFile) {
+    public Reimbursement(int id, Timestamp createdDate, Status status, Double payableCost, Timestamp resolvedDate) {
         this.id = id;
         this.createdDate = createdDate;
         this.status = status;
         this.payableCost = payableCost;
         this.resolvedDate = resolvedDate;
-        this.uploadFile = uploadFile;
     }
 
     public Reimbursement(int id, EventType eventType, String eventLocation, String grade, Date eventDate, Double eventCost, String description, Timestamp createdDate, Status status, Double payableCost, Timestamp resolvedDate, File uploadFile) {
@@ -57,13 +57,34 @@ public class Reimbursement{
         this.resolvedDate = resolvedDate;
         this.uploadFile = uploadFile;
     }
-//getters and setters
+
+    public Reimbursement(int id, int user_id, Timestamp createdDate, Status status, Timestamp resolvedDate) {
+
+    }
+
+    //getters and setters
     public int getId() {
         return id;
     }
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public User getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(User author) {
+        this.author = author;
+    }
+
+    public User getResolver() {
+        return resolver;
+    }
+
+    public void setResolver(User resolver) {
+        this.resolver = resolver;
     }
 
     public EventType getEventType() {

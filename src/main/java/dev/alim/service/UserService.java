@@ -1,5 +1,6 @@
 package dev.alim.service;
 
+import dev.alim.models.Role;
 import dev.alim.models.User;
 import dev.alim.repository.UserDAO;
 

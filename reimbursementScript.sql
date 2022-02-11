@@ -1,6 +1,5 @@
-create type roleEnum as enum ('EMPLOYEE','FINANCE MANAGER');
-create type eventEnum as enum ('University Course','Seminar','Certification Preparation Class','Certification','Technical Training','Other');
-create type statusEnum  as enum ('PENDING', 'APPROVED','DENIED');
+
+--create a table for the users 
 create table users(
 id serial primary key,
 first_name varchar(40) not null,
@@ -13,6 +12,8 @@ password varchar (20)not null unique,
 role roleEnum not null
 );
 
+-- create a table for reimbursement 
+
 create table reimbursement(
 id serial primary key,
 user_id int references users(id) on delete cascade,
@@ -20,37 +21,23 @@ eventType eventEnum not null,
 eventLocation varchar not null,
 eventDate timestamp  not null,
 grade varchar,
-eventcost decimal not null check (eventcost>0 or eventcost<=1000),
+eventcost decimal not null check (eventcost>0),
 description text,
 createdDate timestamp not null default CURRENT_TIMESTAMP,
 status statusEnum  not null default 'PENDING',
-payableCost decimal not null check (payableCost= eventcost or payableCost<=1000) default(0.00),
+payableCost decimal check (payableCost= eventcost or payableCost<=1000) default(0.00),
 resolvedDate timestamp check (resolvedDate  > eventDate),
 uploadFile bytea
 );
+--to get the query set of result form the entity 
+
 select * from users;
 select * from reimbursement;
-
-
-drop table reimbursement ;
-create table reimbursement(
-id serial primary key,
-user_id int references users(id) on delete cascade,
-eventType eventEnum not null,
-eventLocation varchar not null,
-eventDate timestamp  not null,
-grade varchar,
-eventcost decimal not null,
-description text,
-createdDate timestamp not null default CURRENT_TIMESTAMP,
-status statusEnum  not null default 'PENDING',
-payableCost decimal not null default '0.00',
-resolvedDate timestamp,
-uploadFile bytea
-);
+select r.id as reimbursement_id, user_id, createdDate ,status, payableCost, resolvedDate from reimbursement r;
+select r.id as reimbursement_id, user_id, createdDate ,status, payableCost, resolvedDate from reimbursement r join users u on u.id = r.user_id where role ='EMPLOYEE';
 
 --to drop entity or elements from table 
-
+drop table reimbursement ;
 
 --insert the valuses bellow for the both table 
 
@@ -67,16 +54,47 @@ insert into users values
 (default, 'Brown', 'Frost', 'angela@email.com', '2345456789','2124 Madison Ave, Yomkers NY 13452','uange8','pass23', 'EMPLOYEE');
 
 insert into reimbursement values 
-(default,'1','Certification Preparation Class','Florida','2022-3-15','','400','This is required certificatin for the position',default,default,default),
+(default,'1','Certification_Preparation_Class','Florida','2022-3-15','','400','This is required certificatin for the position',default,default,default),
 (default,'2','Certification','New York','2022-3-15','','400','This is required certificatin for the position',default,default,default),
 (default,'3','Seminar','New York','2022-2-15','','420','This is one going skill development seminar',default,default,default),
-(default,'3','Technical Training','Boston','2022-3-5','','600','This is required for the current position',default,default,default),
+(default,'3','Technical_Training','Boston','2022-3-5','','600','This is required for the current position',default,default,default),
 (default,'7','Other','Vargina','2022-2-19','','200','Visiting another office',default,default,default),
-(default,'6','University Course','Texas','2022-3-22','','700','This is skill development course for the new technologies',default,default,default)
+(default,'6','University_Course','Texas','2022-3-22','','700','This is skill development course for the new technologies',default,default,default)
 ;
-insert into reimbursement values 
-(default,'University Course','Texas','2022-2-22','','500','This is skill development course for the new technologies',default,default,default);
+
+insert into reimbursement values (
+default,'7','University_Course','Texas','2022-2-22','','500','This is skill development course for the new technologies',default,default,default);
+
 select * from reimbursement;
+
+--create enum for the users table and reimbursement table 
+
+create type roleEnum as enum ('EMPLOYEE','FINANCE MANAGER');
+create type eventEnum as enum ('University Course','Seminar','Certification Preparation Class','Certification','Technical Training','Other');
+create type statusEnum  as enum ('PENDING', 'APPROVED','DENIED');
+
+--change the eventEnum values in accordance with the java class
+alter type roleEnum rename value 'FINANCE MANAGER' to 'FINANCE_MANAGER' ;
+alter type eventEnum rename value 'University Course' to 'University_Course' ;
+alter type eventEnum rename value 'Certification Preparation Class' to 'Certification_Preparation_Class';
+alter type eventEnum rename value 'Technical Training' to 'Technical_Training';
+
+--practice table for the reimbursement 
+create table reimbursement(
+id serial primary key,
+user_id int references users(id) on delete cascade,
+eventType eventEnum not null,
+eventLocation varchar not null,
+eventDate timestamp  not null,
+grade varchar,
+eventcost decimal not null,
+description text,
+createdDate timestamp not null default CURRENT_TIMESTAMP,
+status statusEnum  not null default 'PENDING',
+payableCost decimal not null default '0.00',
+resolvedDate timestamp,
+uploadFile bytea
+);
 
 --to generate data such as CSV mockaroo.com
 --updates values from different tables: https://www.postgresqltutorial.com/postgresql-update-join/

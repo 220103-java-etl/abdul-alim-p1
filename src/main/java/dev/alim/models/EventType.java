@@ -1,22 +1,22 @@
 package dev.alim.models;
 
 public enum EventType {
-    University_Courses {
+    University_Course {
         @Override
         public String toString() {
-            return ("University Courses");
+            return ("University Course");
         }
     },
-    Seminars{
+    Seminar{
         @Override
         public String toString() {
             return ("Seminars");
         }
     },
-    Certification_Preparation_Classes{
+    Certification_Preparation_Class{
         @Override
         public String toString() {
-            return ("Certification Preparation Classes");
+            return ("Certification Preparation Class");
         }
     },
     Certification{

@@ -71,7 +71,7 @@ public class UserDAO implements GenericDAO <User>{
     }
 
     public User getByUsername(String username) {
-        String sql = "select id, user_name, password from users where user_name = ?";
+        String sql = "select * from users where user_name = ?";
         try (Connection conn = cu.getConnection()) {
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, username);
@@ -79,8 +79,14 @@ public class UserDAO implements GenericDAO <User>{
             if (rs.next()) {
                 User u = new User(
                         rs.getInt("id"),
+                        rs.getString("first_name"),
+                        rs.getString("last_name"),
+                        rs.getString("email"),
+                        rs.getString("phone_number"),
+                        rs.getString("address"),
                         rs.getString("user_name"),
-                        rs.getString("password")
+                        rs.getString("password"),
+                        Role.valueOf(rs.getString("role"))
                 );
                 return u;
             }
@@ -113,6 +119,8 @@ public class UserDAO implements GenericDAO <User>{
                         rs.getString("email"),
                         rs.getString("phone_number"),
                         rs.getString("address"),
+                        rs.getString("user_name"),
+                        rs.getString("password"),
                         Role.valueOf(rs.getString("role"))
                 );
                 users.add(u);
