@@ -17,7 +17,7 @@ role roleEnum not null
 create table reimbursement(
 id serial primary key,
 user_id int references users(id) on delete cascade,
-eventType eventEnum not null,
+eventType varchar  not null,
 eventLocation varchar not null,
 eventDate timestamp  not null,
 grade varchar,
@@ -66,6 +66,7 @@ insert into reimbursement values (
 default,'7','University_Course','Texas','2022-2-22','','500','This is skill development course for the new technologies',default,default,default);
 
 select * from reimbursement;
+truncate table reimbursement ;
 
 --create enum for the users table and reimbursement table 
 

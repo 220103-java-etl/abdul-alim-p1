@@ -10,7 +10,8 @@ public class ReimbursementService {
         return reimbursementDAO.add(r);
 
     }
-    public Reimbursement updateReimbursement(Reimbursement re){
-        return reimbursementDAO.update(re);
+    public Reimbursement updateReimbursement(Reimbursement ru){
+
+        return reimbursementDAO.update(ru);
     }
 }
