@@ -3,19 +3,16 @@
 
 ## Project Description
 
-The purpose of the project is to create an ETL (Extract, Transform, Load) and web application to view and manipulate an E-commerce mock data set from an AWS server. We used Talend to read a CSV file with 1000 entries of mock E-commerce data with some dirty data, cleaned that data, then load it onto an AWS server where it can be accessed from the web application.
+ then load it onto an AWS server where it can be accessed from the web application.
 
 ## Technologies Used
 
 * DBeaver - version 21.3.5
 * IntelliJ - version 2021.3.1
 * Java - version 1.8
-* Junit - version 4.13.2
 * Maven - version 3.8.4
 * PostgreSQL - version 42.3.1
 * Postman - version 9.14.6
-* Spring Boot - version 2.6.3
-* Talend - version 8.0.1
 * Tomcat - version 9.0.56
 
 ## Features
@@ -38,8 +35,8 @@ The purpose of the project is to create an ETL (Extract, Transform, Load) and we
 4. Edit the application.properties file to your specifications
 
 5. Run EtlECommerceApplication using Spring and then go to http://localhost:8080/user/ to test web app
-# Usages:
-To use this app simply follow these Steps: 
+<h3>Usages:<h3>
+   To use this app simply follow these Steps: 
     1: Log into account, if not registered user, please use register button to setup a user account by completing the registration form.
     2: If the log in user is non management employee then the user would be able to create a reimbursement request for the manager approval.
     On the other hand if the user is manager then it directed to different url, in where manager would be able to approve or denie the request(uncomplete)
