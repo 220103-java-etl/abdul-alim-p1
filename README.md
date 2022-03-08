@@ -37,7 +37,7 @@
 5. Run EtlECommerceApplication using Spring and then go to http://localhost:8080/user/ to test web app
 6. 
 
-##Usages:
+## Usages:
 
  To use this app simply follow these Steps: 
 
