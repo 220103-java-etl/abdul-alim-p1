@@ -1,5 +1,6 @@
 # Employee Reimbursement System (ERS)
 # Author: Abdul Alim
+# To see the project code please switch to the master branch
 
 ## Project Description
 
