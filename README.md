@@ -3,8 +3,8 @@
 
 ## Project Description
 
- then load it onto an AWS server where it can be accessed from the web application.
-
+This application required the users login prior to access it. if the users not exists then it will direct to the users for the registration page to register in order to access the application. upon successful login the employee will be able to request for the reimbursement for the attended events. the manager will be able to see all the submited request for the reimbursement. (Under development: the employee will be able to see all of the submited request and the status of the reimbursement and the manager will be able to see all the submited request and would be able to edit it to approve or denial the request. )
+ 
 ## Technologies Used
 
 * DBeaver - version 21.3.5
