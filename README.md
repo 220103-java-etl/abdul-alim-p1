@@ -37,7 +37,7 @@ This application required the users login prior to access it. if the users not e
 
 4. Edit the application.properties file to your specifications
 
-5. Run EtlECommerceApplication using Spring and then go to http://localhost:8080/user/ to test web app
+5. Run EtlECommerceApplication using Spring and then go to http://localhost:8080/login/ to test web app
 6. 
 
 ## Usages:
