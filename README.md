@@ -1,4 +1,4 @@
-# 
+# Employee Reimbursement System (ERS)
 # Author: Abdul Alim
 
 ## Project Description
@@ -14,6 +14,9 @@
 * PostgreSQL - version 42.3.1
 * Postman - version 9.14.6
 * Tomcat - version 9.0.56
+* HTML5
+* CSS3
+* AWS RD
 
 ## Features
 
