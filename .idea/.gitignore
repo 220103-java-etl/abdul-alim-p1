@@ -2,4 +2,4 @@
 /shelf/
 /workspace.xml
 
-.connection.properties
+*.connection.properties
