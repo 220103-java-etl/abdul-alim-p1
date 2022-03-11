@@ -1,6 +1,7 @@
 # Default ignored files
 /shelf/
 /workspace.xml
+
 # IDE-specific files and folders
 .idea/
 *.iml
